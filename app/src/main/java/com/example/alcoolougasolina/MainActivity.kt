@@ -12,24 +12,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun calcValor(view: View){
+    fun calcValor(view: View) {
         val precoAlcool = findViewById<EditText>(R.id.editPrecoAlcool)
         val precoGasolina = findViewById<EditText>(R.id.editPrecoGasolina)
         val textResultado = findViewById<TextView>(R.id.textResultado)
 
         val validaCampos = validarCampos(precoAlcool.text.toString(), precoGasolina.text.toString())
 
-        if (validaCampos){
+        if (validaCampos) {
 
             calcularMelhorPreco(precoAlcool.text.toString(), precoGasolina.text.toString())
-        }else {
+        } else {
             textResultado.text = "Por favor digite um valor"
 
         }
 
     }
 
-    fun calcularMelhorPreco(precoAlcool: String, precoGasolina: String){
+    fun calcularMelhorPreco(precoAlcool: String, precoGasolina: String) {
 
         val valAlcool = precoAlcool.toDouble()
         val valGasolina = precoGasolina.toDouble()
@@ -38,23 +38,23 @@ class MainActivity : AppCompatActivity() {
 
         val resultadoPreco = valAlcool / valGasolina
 
-        if(resultadoPreco >= 0.7){
+        if (resultadoPreco >= 0.7) {
 
             textResultado.text = "Melhor usar gasolina"
 
-        }else {
+        } else {
             textResultado.text = "Melhor usar alcool"
 
         }
     }
 
-    fun validarCampos(precoAlcool: String, precoGasolina: String) : Boolean{
+    fun validarCampos(precoAlcool: String, precoGasolina: String): Boolean {
 
         var camposValidados: Boolean = true;
 
-        if( precoAlcool == null || precoAlcool ==""){
+        if (precoAlcool == null || precoAlcool == "") {
             camposValidados = false
-        }else  if( precoGasolina == null || precoGasolina ==""){
+        } else if (precoGasolina == null || precoGasolina == "") {
             camposValidados = false
         }
 
